@@ -1,0 +1,260 @@
+{
+  "generatedBy": "scripts/import_assets.py",
+  "assets": [
+    {
+      "file": "/assets/tilesets/farm/terrain.png",
+      "width": 256,
+      "height": 256,
+      "alpha": true,
+      "pack": "farm_vectoraith",
+      "tile": 16
+    },
+    {
+      "file": "/assets/tilesets/farm/details.png",
+      "width": 256,
+      "height": 256,
+      "alpha": true,
+      "pack": "farm_vectoraith",
+      "tile": 16
+    },
+    {
+      "file": "/assets/tilesets/farm/buildings.png",
+      "width": 256,
+      "height": 256,
+      "alpha": true,
+      "pack": "farm_vectoraith",
+      "tile": 16
+    },
+    {
+      "file": "/assets/tilesets/farm/crops.png",
+      "width": 256,
+      "height": 256,
+      "alpha": true,
+      "pack": "farm_vectoraith",
+      "tile": 16
+    },
+    {
+      "file": "/assets/characters/npc/farmer.png",
+      "width": 48,
+      "height": 128,
+      "alpha": true,
+      "pack": "farm_vectoraith",
+      "frame": [
+        16,
+        32
+      ],
+      "layout": "3 cols x 4 rows (verified visually: rows = down,left,right,up)"
+    },
+    {
+      "file": "/assets/farming/livestock/chicken_hen.png",
+      "width": 48,
+      "height": 64,
+      "alpha": true,
+      "pack": "farm_vectoraith",
+      "frame": [
+        16,
+        16
+      ]
+    },
+    {
+      "file": "/assets/farming/livestock/cow_white.png",
+      "width": 72,
+      "height": 96,
+      "alpha": true,
+      "pack": "farm_vectoraith",
+      "frame": [
+        24,
+        24
+      ]
+    },
+    {
+      "file": "/assets/items/vegetables.png",
+      "width": 128,
+      "height": 224,
+      "alpha": false,
+      "pack": "farming_set",
+      "grid": 32,
+      "note": "32px icons; pumpkin is 64x64 at cell (0,3)"
+    },
+    {
+      "file": "/assets/items/seeds_cereals.png",
+      "width": 64,
+      "height": 160,
+      "alpha": false,
+      "pack": "farming_set",
+      "grid": 32,
+      "note": "col 0 = seed packets rows 0-4"
+    },
+    {
+      "file": "/assets/items/stone_axe.png",
+      "width": 128,
+      "height": 32,
+      "alpha": true,
+      "pack": "farming_set",
+      "frame": [
+        32,
+        32
+      ]
+    },
+    {
+      "file": "/assets/characters/npc/woman_idle.png",
+      "width": 198,
+      "height": 33,
+      "alpha": false,
+      "pack": "farming_set",
+      "frame": [
+        33,
+        33
+      ],
+      "frames": 6
+    },
+    {
+      "file": "/assets/characters/player/boy.png",
+      "width": 640,
+      "height": 640,
+      "alpha": true,
+      "pack": "player_boy",
+      "frame": [
+        64,
+        64
+      ],
+      "columns": 10,
+      "layout": {
+        "cols": {
+          "0": "left",
+          "1": "up",
+          "2": "down",
+          "3": "right"
+        },
+        "walkRows": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "idleRows": [
+          5,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    {
+      "file": "/assets/monsters/slime/slime1_idle.png",
+      "width": 384,
+      "height": 256,
+      "alpha": true,
+      "pack": "slime_mobs",
+      "frame": [
+        64,
+        64
+      ],
+      "frames": 6,
+      "rowOrder": [
+        "down",
+        "up",
+        "left",
+        "right"
+      ]
+    },
+    {
+      "file": "/assets/monsters/slime/slime1_walk.png",
+      "width": 512,
+      "height": 256,
+      "alpha": true,
+      "pack": "slime_mobs",
+      "frame": [
+        64,
+        64
+      ],
+      "frames": 8,
+      "rowOrder": [
+        "down",
+        "up",
+        "left",
+        "right"
+      ]
+    },
+    {
+      "file": "/assets/monsters/slime/slime1_run.png",
+      "width": 512,
+      "height": 256,
+      "alpha": true,
+      "pack": "slime_mobs",
+      "frame": [
+        64,
+        64
+      ],
+      "frames": 8,
+      "rowOrder": [
+        "down",
+        "up",
+        "left",
+        "right"
+      ]
+    },
+    {
+      "file": "/assets/monsters/slime/slime1_attack.png",
+      "width": 640,
+      "height": 256,
+      "alpha": true,
+      "pack": "slime_mobs",
+      "frame": [
+        64,
+        64
+      ],
+      "frames": 10,
+      "rowOrder": [
+        "down",
+        "up",
+        "left",
+        "right"
+      ]
+    },
+    {
+      "file": "/assets/monsters/slime/slime1_hurt.png",
+      "width": 320,
+      "height": 256,
+      "alpha": true,
+      "pack": "slime_mobs",
+      "frame": [
+        64,
+        64
+      ],
+      "frames": 5,
+      "rowOrder": [
+        "down",
+        "up",
+        "left",
+        "right"
+      ]
+    },
+    {
+      "file": "/assets/monsters/slime/slime1_death.png",
+      "width": 640,
+      "height": 256,
+      "alpha": true,
+      "pack": "slime_mobs",
+      "frame": [
+        64,
+        64
+      ],
+      "frames": 10,
+      "rowOrder": [
+        "down",
+        "up",
+        "left",
+        "right"
+      ]
+    },
+    {
+      "file": "/assets/items/ero_icons.png",
+      "width": 64,
+      "height": 32,
+      "alpha": true,
+      "pack": "ORIGINAL",
+      "note": "coin (0,0) and slime gel (1,0), original art by this project"
+    }
+  ]
+}

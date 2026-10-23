@@ -1,0 +1,19 @@
+node_modules/
+dist/
+.wrangler/
+.dev.vars
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+
+# --- Third-party art whose licence forbids redistributing the raw files (this repo is public).
+# Owners re-create these locally with:  python3 scripts/import_assets.py assets-import/original-archives
+# See docs/ASSET_CREDITS.md.
+apps/web/public/assets/tilesets/
+apps/web/public/assets/farming/
+apps/web/public/assets/characters/npc/farmer.png
+apps/web/public/assets/monsters/
+assets-import/original-archives/*
+!assets-import/original-archives/.gitkeep

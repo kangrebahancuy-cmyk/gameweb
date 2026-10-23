@@ -1,0 +1,21 @@
+{
+  // Local development config. Production uses wrangler.prod.jsonc (adds Hyperdrive -> Neon).
+  "name": "ero-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-09-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "durable_objects": {
+    "bindings": [
+      { "name": "WORLD_ROOM", "class_name": "WorldRoom" },
+      { "name": "CHAR_VAULT", "class_name": "CharVault" }
+    ]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["WorldRoom", "CharVault"] }],
+  "vars": {
+    // DEV_AUTH lets the web client join with a throw-away guest identity. NEVER enable in production.
+    "DEV_AUTH": "true",
+    "ALLOWED_ORIGINS": "http://localhost:5173,http://127.0.0.1:5173",
+    "MAX_ROOM_PLAYERS": "40",
+    "MAX_SHARDS": "4"
+  }
+}

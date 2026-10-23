@@ -1,0 +1,28 @@
+{
+  "name": "@ero/worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --port 8787",
+    "deploy": "wrangler deploy -c wrangler.prod.jsonc",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test test/*.test.ts",
+    "db:migrate": "node scripts/migrate.mjs"
+  },
+  "dependencies": {
+    "@ero/shared": "*",
+    "drizzle-orm": "^0.44.0",
+    "jose": "^6.0.0",
+    "pg": "^8.13.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250900.0",
+    "@electric-sql/pglite": "^0.3.0",
+    "@types/node": "^22.0.0",
+    "@types/pg": "^8.11.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.8.0",
+    "wrangler": "^4.30.0"
+  }
+}

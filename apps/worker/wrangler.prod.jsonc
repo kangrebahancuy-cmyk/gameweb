@@ -1,0 +1,26 @@
+{
+  // Production config. Before deploying:
+  //   1. npx wrangler hyperdrive create ero-neon --connection-string="postgres://...neon.tech/neondb?sslmode=require"
+  //   2. paste the returned id below
+  //   3. npx wrangler secret put SUPABASE_JWT_SECRET   (only if your Supabase project still uses the legacy HS256 secret)
+  //   4. set SUPABASE_URL, ALLOWED_ORIGINS to your real values
+  "name": "ero-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-09-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "durable_objects": {
+    "bindings": [
+      { "name": "WORLD_ROOM", "class_name": "WorldRoom" },
+      { "name": "CHAR_VAULT", "class_name": "CharVault" }
+    ]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["WorldRoom", "CharVault"] }],
+  "hyperdrive": [{ "binding": "HYPERDRIVE", "id": "REPLACE_WITH_HYPERDRIVE_ID" }],
+  "vars": {
+    "DEV_AUTH": "false",
+    "SUPABASE_URL": "https://YOUR-PROJECT.supabase.co",
+    "ALLOWED_ORIGINS": "https://YOUR-PAGES-DOMAIN",
+    "MAX_ROOM_PLAYERS": "40",
+    "MAX_SHARDS": "8"
+  }
+}

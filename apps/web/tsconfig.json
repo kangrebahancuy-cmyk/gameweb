@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "noImplicitOverride": false, // Phaser lifecycle methods (preload/create/update) are optional in its typings
+    "jsx": "react-jsx",
+    "types": ["vite/client", "node"]
+  },
+  "include": ["src", "test", "vite.config.ts"]
+}
