@@ -1,0 +1,186 @@
+{
+  "generatedBy": "scripts/import_ui.py",
+  "pack": "craftpix free-basic-pixel-art-ui-for-rpg",
+  "assets": [
+    {
+      "file": "/assets/ui/panel.png",
+      "width": 98,
+      "height": 101,
+      "sheet": "Inventory.png",
+      "box": [
+        7,
+        0,
+        98,
+        101
+      ]
+    },
+    {
+      "file": "/assets/ui/btn.png",
+      "width": 42,
+      "height": 13,
+      "sheet": "Buttons.png",
+      "box": [
+        212,
+        142,
+        42,
+        13
+      ]
+    },
+    {
+      "file": "/assets/ui/btn_down.png",
+      "width": 42,
+      "height": 13,
+      "sheet": "Buttons.png",
+      "box": [
+        260,
+        143,
+        42,
+        12
+      ]
+    },
+    {
+      "file": "/assets/ui/btn_hover.png",
+      "width": 42,
+      "height": 13,
+      "sheet": "Buttons.png",
+      "box": [
+        308,
+        142,
+        42,
+        13
+      ]
+    },
+    {
+      "file": "/assets/ui/btn_off.png",
+      "width": 42,
+      "height": 13,
+      "sheet": "Buttons.png",
+      "box": [
+        356,
+        143,
+        42,
+        12
+      ]
+    },
+    {
+      "file": "/assets/ui/sq.png",
+      "width": 22,
+      "height": 23,
+      "sheet": "Buttons.png",
+      "box": [
+        13,
+        12,
+        22,
+        23
+      ]
+    },
+    {
+      "file": "/assets/ui/sq_down.png",
+      "width": 22,
+      "height": 23,
+      "sheet": "Buttons.png",
+      "box": [
+        61,
+        13,
+        22,
+        22
+      ]
+    },
+    {
+      "file": "/assets/ui/sq_hover.png",
+      "width": 22,
+      "height": 23,
+      "sheet": "Buttons.png",
+      "box": [
+        109,
+        12,
+        22,
+        23
+      ]
+    },
+    {
+      "file": "/assets/ui/close.png",
+      "width": 11,
+      "height": 11,
+      "sheet": "Main_tiles.png",
+      "box": [
+        355,
+        290,
+        11,
+        11
+      ]
+    },
+    {
+      "file": "/assets/ui/slot_dark.png",
+      "width": 15,
+      "height": 14,
+      "sheet": "Inventory.png",
+      "box": [
+        177,
+        113,
+        15,
+        14
+      ]
+    },
+    {
+      "file": "/assets/ui/slot_light.png",
+      "width": 15,
+      "height": 14,
+      "sheet": "Inventory.png",
+      "box": [
+        192,
+        113,
+        15,
+        14
+      ]
+    },
+    {
+      "file": "/assets/ui/board.png",
+      "width": 166,
+      "height": 19,
+      "sheet": "Action_panel.png",
+      "box": [
+        13,
+        13,
+        166,
+        19
+      ]
+    },
+    {
+      "file": "/assets/ui/icons.png",
+      "width": 96,
+      "height": 304,
+      "sheet": "Icons.png",
+      "box": null
+    },
+    {
+      "file": "/assets/ui/hud.png",
+      "width": 86,
+      "height": 30,
+      "sheet": "character_panel.png",
+      "bars": {
+        "hp": {
+          "x": 31,
+          "y": 8,
+          "w": 50,
+          "h": 2,
+          "color": "#d74427"
+        },
+        "en": {
+          "x": 32,
+          "y": 13,
+          "w": 42,
+          "h": 2,
+          "color": "#3583c4"
+        },
+        "xp": {
+          "x": 32,
+          "y": 18,
+          "w": 36,
+          "h": 2,
+          "color": "#44a13b"
+        }
+      }
+    }
+  ]
+}

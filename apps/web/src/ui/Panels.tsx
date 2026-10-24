@@ -9,7 +9,7 @@ function PanelFrame({ title, children }: { title: string; children: ReactNode })
   return (
     <div className="panel" role="dialog" aria-label={title}>
       <header><h2>{title}</h2><button className="x" onClick={close} aria-label="Close">x</button></header>
-      {children}
+      <div className="body">{children}</div>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { CROP_BY_SEED, ITEMS, MAX_LEVEL, countItem } from '@ero/shared';
+import { CROP_BY_SEED, ITEMS, MAX_LEVEL, countItem, xpForLevel } from '@ero/shared';
 import { ownedSeeds } from '../game/interaction';
 import { sendAction } from '../net/instance';
 import { useGame, type Panel } from '../state/store';
@@ -30,17 +30,34 @@ export function Hud({ onLogout }: { onLogout: () => void }) {
   );
 }
 
+/** Pack HUD frame (86x30 source px). Bar widths: hp 50, energy 42, farming xp 36 source px at 100%. */
+const BAR = { hp: 50, en: 42, xp: 36 };
+const U = 'var(--u)';
+
 function StatusBars() {
   const self = useGame((s) => s.self);
   const conn = useGame((s) => s.conn);
   if (!self) return null;
+  const f = self.skills.farming;
+  const lo = xpForLevel(f.level), hi = f.level >= MAX_LEVEL ? lo : xpForLevel(f.level + 1);
+  const xpPct = hi > lo ? Math.min(1, Math.max(0, (f.xp - lo) / (hi - lo))) : 1;
+  const w = (full: number, pct: number) => `calc(${Math.round(full * Math.min(1, Math.max(0, pct)) * 100) / 100} * ${U})`;
   return (
     <div className="status">
-      <div className="name">{self.name} <span className={`dot ${conn}`} title={conn} /></div>
-      <div className="meter hp"><div style={{ width: `${(self.hp / self.maxHp) * 100}%` }} /><span>{self.hp}/{self.maxHp} HP</span></div>
-      <div className="meter en"><div style={{ width: `${self.energy}%` }} /></div>
-      <div className="line"><CoinIcon /> {self.coins.toLocaleString()} <span className="season">{self.season}</span></div>
-      <div className="line small">Combat {Math.floor((self.skills.attack.level + self.skills.strength.level + self.skills.defence.level) / 3)} / {MAX_LEVEL}</div>
+      <div className="hudframe" title={`HP ${self.hp}/${self.maxHp}  Energy ${Math.round(self.energy)}%  Farming ${f.level}`}>
+        <div className="portrait"><i /></div>
+        <img className="frame" src="/assets/ui/hud.png" alt="" draggable={false} />
+        <div className="fill hp" style={{ width: w(BAR.hp, self.hp / self.maxHp) }} />
+        <div className="fill en" style={{ width: w(BAR.en, self.energy / 100) }} />
+        <div className="fill xp" style={{ width: w(BAR.xp, xpPct) }} />
+      </div>
+      <div className="info">
+        <span className="name">{self.name}</span><span className={`dot ${conn}`} title={conn} />
+        <span className="small">HP {self.hp}/{self.maxHp}</span>
+        <span className="line"><CoinIcon size={14} /> {self.coins.toLocaleString()}</span>
+        <span className="season">{self.season}</span>
+        <span className="small">Combat {Math.floor((self.skills.attack.level + self.skills.strength.level + self.skills.defence.level) / 3)} / {MAX_LEVEL}</span>
+      </div>
     </div>
   );
 }

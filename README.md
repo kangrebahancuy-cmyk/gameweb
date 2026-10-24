@@ -36,6 +36,7 @@ npm install                      # membuat package-lock.json pertama kali; commi
 # 1. Impor aset (ZIP asli Anda, tidak di-download oleh script)
 mkdir -p assets-import/original-archives   # taruh 4 ZIP di sini, lihat docs/ASSET_CREDITS.md
 python3 scripts/import_assets.py assets-import/original-archives
+python3 scripts/import_ui.py assets-import/original-archives   # skin UI (ZIP Free-Basic-Pixel-Art-UI-for-RPG)
 # 2. Konfigurasi client + worker (login tamu lokal TANPA Supabase)
 cp apps/web/.env.example apps/web/.env.local     # kosongkan VITE_SUPABASE_*, biarkan VITE_DEV_AUTH=true
 cp apps/worker/.dev.vars.example apps/worker/.dev.vars   # DEV_AUTH=true

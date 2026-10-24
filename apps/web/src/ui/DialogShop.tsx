@@ -36,6 +36,7 @@ function ShopWindow({ npc, name, onClose }: { npc: string; name: string; onClose
   return (
     <div className="panel shop" role="dialog" aria-label={`${name}'s shop`}>
       <header><h2>{name}&apos;s General Store</h2><button className="x" onClick={onClose} aria-label="Close">x</button></header>
+      <div className="body">
       <div className="coins"><CoinIcon /> {self.coins.toLocaleString()} coins</div>
       <h3>Buy</h3>
       <ul className="shoplist">
@@ -67,6 +68,7 @@ function ShopWindow({ npc, name, onClose }: { npc: string; name: string; onClose
         <button disabled={self.coins < FARM_EXPANSION_COST || rowsLeft >= getMap().farm.maxRows} onClick={() => sendAction({ t: 'expand_farm' })}>
           Add a row ({FARM_EXPANSION_COST} coins)
         </button>
+      </div>
       </div>
     </div>
   );

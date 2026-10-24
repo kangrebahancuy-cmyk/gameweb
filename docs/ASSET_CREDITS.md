@@ -7,6 +7,7 @@ Lisensi di bawah ini diverifikasi dari halaman sumber resmi pada 2026-10-23. Per
 | Farming Sim Asset Pack (essentials) | vectoraith, https://vectoraith.itch.io/farming-sim-asset-pack | Boleh untuk proyek gratis dan komersial, boleh dimodifikasi. **Dilarang** redistribusi/jual ulang file aslinya atau turunannya apa adanya; dilarang NFT dan pelatihan AI. Kredit tidak diwajibkan. | Tileset medan, bangunan, detail, tanaman; sprite petani dan ternak |
 | Farming Set (pixel art) | ScratchIO, https://opengameart.org/content/farming-set-pixel-art | CC0 | Ikon sayur, bibit, kapak; NPC wanita |
 | Pixel Art Character | acasas (rilis dari TheGameAssetsMine), https://opengameart.org/content/pixel-art-character | CC0 | Sprite pemain |
+| Free Basic Pixel Art UI for RPG | CraftPix, https://craftpix.net/freebies/free-basic-pixel-art-ui-for-rpg/ | CraftPix freebie license, https://craftpix.net/file-licenses/ (salinan: `docs/licenses/craftpix-free-basic-pixel-art-ui-License.txt`) | Seluruh skin UI web: panel, tombol, slot, bar HUD, tombol tutup, papan kayu |
 | Free Slime Mobs | CraftPix, https://craftpix.net/freebies/free-slime-mobs-pixel-art-top-down-sprite-pack/ | CraftPix freebie license, https://craftpix.net/file-licenses/ (salinan: `docs/licenses/`) | Slime (saat ini Slime1) |
 
 Catatan: ZIP Farming Set berisi font latar dari dafont (hanya untuk preview, tidak dipakai).
@@ -53,3 +54,7 @@ ZIP yang diharapkan di `assets-import/original-archives/` (pencocokan berdasarka
 Belum dipakai (tersedia untuk fitur berikutnya): Slime2 dan Slime3, varian bayangan, ternak lain (sapi, domba, kambing, kucing, anak sapi), kuda (`Horse/`), buah/hay/peti (`Fruits.png`, `Hay.png`, `Crates And Sacks.png`), kapak besi/berlian, tileset musim lain dan kebun buah, serta varian 32px/48px. Berkas `.aseprite`, `.psd`, dan `__MACOSX` hanya sumber edit, tidak perlu diserve.
 
 **Peringatan lisensi:** repo ini publik dan sekarang memuat seluruh pack vectoraith serta CraftPix di `all-assets/` dan `public/assets/`. Lisensi vectoraith melarang redistribusi file asli. Jadikan repo privat, atau hapus file tersebut dari Git (`git rm -r --cached`) dan simpan hanya lokal.
+
+## Skin UI
+
+Potongan UI dibuat oleh `python3 scripts/import_ui.py <zip UI>` ke `apps/web/public/assets/ui/` (kotak potong terukur, tanpa scaling; daftar di `docs/UI_MANIFEST.json`). `apps/web/src/styles.css` memakainya sebagai 9-slice (`border-image`). Font piksel Silkscreen dimuat dari Google Fonts di `index.html`; jika offline, jatuh ke monospace. Potret HUD memakai sprite pemain (Pixel Art Character), bukan potret bawaan pack.
