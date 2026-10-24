@@ -2,7 +2,7 @@ import { DurableObject } from 'cloudflare:workers';
 import { Client } from 'pg';
 import { drizzle } from 'drizzle-orm/node-postgres';
 import { ClientActionSchema, JoinSchema, WorldSim, newCharacter, type CharacterData, type ServerMsg } from '@ero/shared';
-import { verifyToken } from './auth';
+import { AuthError, verifyToken } from './auth';
 import { PgCharacterStore } from './db/pg-store';
 import type { Env } from './env';
 import { NameTakenError, VersionConflict, type CharacterStore, type StoredCharacter } from './store';
@@ -138,8 +138,11 @@ export class WorldRoom extends DurableObject<Env> {
     let accountId: string;
     try {
       accountId = (await verifyToken(token, this.env)).sub;
-    } catch {
-      this.rawSend(s, { t: 'err', code: 'auth', msg: 'Authentication failed.' });
+    } catch (e) {
+      const kind = e instanceof AuthError ? e.kind : 'invalid';
+      console.warn('auth rejected', kind, e instanceof Error ? e.message : String(e)); // never log the token itself
+      const msg = e instanceof AuthError && kind !== 'invalid' ? e.message : 'Authentication failed. Please sign in again.';
+      this.rawSend(s, { t: 'err', code: 'auth', msg });
       return void this.closeSession(s, 4401, 'auth');
     }
     // One live session per account in this room: finish the old one (incl. its final save) first.

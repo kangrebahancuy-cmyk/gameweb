@@ -6,7 +6,7 @@ Tidak ada deployment produksi yang sudah dijalankan atau diverifikasi. Langkah b
 
 1. Buat proyek Supabase. Aktifkan Email auth.
 2. Salin `Project URL` dan `anon key` ke `apps/web/.env.local` (`VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`). Jangan pernah memakai service-role key di browser.
-3. Untuk Worker: set `SUPABASE_URL`. Jika proyek memakai JWT legacy HS256, set juga secret `SUPABASE_JWT_SECRET`; jika memakai signing key asimetris, JWKS dipakai otomatis.
+3. Untuk Worker: `SUPABASE_URL` **wajib sama** dengan proyek yang dipakai client (issuer token dicocokkan). Lokal: taruh di `apps/worker/.dev.vars`; produksi: `vars` di `wrangler.prod.jsonc`. Jika token proyek bertanda tangan HS256 (legacy), set juga secret `SUPABASE_JWT_SECRET`; jika asimetris (ES256/RS256), JWKS dipakai otomatis. Jika login gagal, pesan di game menyebut penyebabnya dan `GET /api/health` menampilkan mode auth Worker.
 
 ## 2. Neon (database)
 

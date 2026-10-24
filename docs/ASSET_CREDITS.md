@@ -37,3 +37,19 @@ ZIP yang diharapkan di `assets-import/original-archives/` (pencocokan berdasarka
 - Pack pemain hanya berisi satu sheet jalan/idle; hanya animasi yang ada di sheet itu yang dipakai.
 - Hanya Slime1 yang terhubung ke gameplay. Slime2 dan Slime3 ada di ZIP dan dapat dijadikan definisi monster baru setelah frame-nya divalidasi.
 - Hanya sebagian ternak yang diimpor (ayam, sapi putih) dan belum ada sistem peternakan.
+
+## Penempatan aset (diaudit 2026-10-24)
+
+`all-assets/` (di root repo, tidak diserve game) adalah hasil ekstraksi gabungan keempat ZIP. Game hanya memuat file di `apps/web/public/assets/`. Seluruh 19 file di sana ada, ukurannya cocok dengan `docs/ASSET_MANIFEST.json`, dan layout frame yang dipakai kode (slime 64x64: idle 6, walk 8, run 8, attack 10, hurt 5, death 10 frame x 4 arah) cocok dengan gambarnya.
+
+| Dipakai game | Sumber di `all-assets/` |
+|---|---|
+| `tilesets/farm/*` | `ReShade/16x16/Tilesets (Compact)/` (terrain_spring_expanded, details, buildings, crops) |
+| `characters/npc/farmer.png`, `farming/livestock/*` | `ReShade/16x16/Sprites/` |
+| `items/*`, `characters/npc/woman_idle.png` | `Vegetables.png`, `Seeds_Cereals.png`, `Stone Axe.png`, `Slavic Woman/Woman_Idle.png` |
+| `characters/player/boy.png` | `Pixel Art Character-TheGameAssetsMine-/PNG/` |
+| `monsters/slime/slime1_*` | `PNG/Slime1/Without_shadow/` |
+
+Belum dipakai (tersedia untuk fitur berikutnya): Slime2 dan Slime3, varian bayangan, ternak lain (sapi, domba, kambing, kucing, anak sapi), kuda (`Horse/`), buah/hay/peti (`Fruits.png`, `Hay.png`, `Crates And Sacks.png`), kapak besi/berlian, tileset musim lain dan kebun buah, serta varian 32px/48px. Berkas `.aseprite`, `.psd`, dan `__MACOSX` hanya sumber edit, tidak perlu diserve.
+
+**Peringatan lisensi:** repo ini publik dan sekarang memuat seluruh pack vectoraith serta CraftPix di `all-assets/` dan `public/assets/`. Lisensi vectoraith melarang redistribusi file asli. Jadikan repo privat, atau hapus file tersebut dari Git (`git rm -r --cached`) dan simpan hanya lokal.

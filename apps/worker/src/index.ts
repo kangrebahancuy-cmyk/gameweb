@@ -1,3 +1,4 @@
+import { authMode } from './auth';
 import type { Env } from './env';
 
 export { WorldRoom } from './room';
@@ -24,7 +25,7 @@ export default {
     }
 
     if (url.pathname === '/api/health') {
-      return Response.json({ ok: true, time: Date.now() }, { headers: cors(req, env) });
+      return Response.json({ ok: true, time: Date.now(), auth: authMode(env) }, { headers: cors(req, env) });
     }
 
     if (url.pathname === '/api/status') {

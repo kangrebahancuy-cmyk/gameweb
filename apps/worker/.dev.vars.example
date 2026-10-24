@@ -1,0 +1,10 @@
+# Copy to apps/worker/.dev.vars (git-ignored). Read by `wrangler dev`.
+#
+# Option A - guest play, no Supabase (matches VITE_DEV_AUTH=true and EMPTY Supabase keys in apps/web/.env.local):
+DEV_AUTH=true
+#
+# Option B - real Supabase login (matches VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY in apps/web/.env.local).
+# Use the SAME project URL as the web client. Set DEV_AUTH=false or leave it; real tokens are still verified.
+# SUPABASE_URL=https://YOUR-PROJECT.supabase.co
+# Only if the project still uses the legacy HS256 JWT secret (Supabase > Settings > API > JWT secret):
+# SUPABASE_JWT_SECRET=your-legacy-jwt-secret

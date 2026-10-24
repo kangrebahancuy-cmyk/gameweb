@@ -36,12 +36,15 @@ npm install                      # membuat package-lock.json pertama kali; commi
 # 1. Impor aset (ZIP asli Anda, tidak di-download oleh script)
 mkdir -p assets-import/original-archives   # taruh 4 ZIP di sini, lihat docs/ASSET_CREDITS.md
 python3 scripts/import_assets.py assets-import/original-archives
-# 2. Konfigurasi client
-cp apps/web/.env.example apps/web/.env.local
+# 2. Konfigurasi client + worker (login tamu lokal TANPA Supabase)
+cp apps/web/.env.example apps/web/.env.local     # kosongkan VITE_SUPABASE_*, biarkan VITE_DEV_AUTH=true
+cp apps/worker/.dev.vars.example apps/worker/.dev.vars   # DEV_AUTH=true
 # 3. Jalankan (dua terminal)
 npm run dev:worker               # ws://localhost:8787/ws (DEV_AUTH aktif, tanpa Neon: penyimpanan di Durable Object)
 npm run dev:web                  # http://localhost:5173
 ```
+
+Jika game menampilkan **"Authentication failed"**: pesan sekarang menyebut penyebabnya. Cek `http://localhost:8787/api/health`; field `auth` menunjukkan mode Worker (`devGuests`, `supabaseUrl`, `hs256Secret`). Aturan: client tamu (`VITE_DEV_AUTH=true`, tanpa kunci Supabase) butuh Worker `DEV_AUTH=true`; client dengan login Supabase butuh Worker dengan `SUPABASE_URL` dari proyek yang sama (dan `SUPABASE_JWT_SECRET` bila proyek memakai HS256).
 
 Buka dua tab browser untuk melihat dua pemain di dunia yang sama. Tombol `VITE_DEV_AUTH=true` memungkinkan bermain sebagai tamu tanpa Supabase (hanya untuk lokal).
 

@@ -106,7 +106,7 @@ export class GameSocket {
       case 'chat': pushChat(m.from, m.text); break;
       case 'err':
         if (m.code === 'need_name' || m.code === 'name_taken') g.set({ needName: m.msg, conn: 'idle' });
-        else if (m.code === 'auth') g.set({ fatal: 'Authentication failed. Please sign in again.', conn: 'closed' });
+        else if (m.code === 'auth') g.set({ fatal: m.msg || 'Authentication failed. Please sign in again.', conn: 'closed' });
         else if (m.code === 'replaced' || m.code === 'session_conflict') g.set({ fatal: m.msg, conn: 'closed' });
         else if (m.code !== 'bad_message') g.toast(m.msg, 'error');
         break;
